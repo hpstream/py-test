@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env bash
 # -- coding: utf-8 --
 # @Date  : 2024/11/23
 # @Name  : ZhouZongXin
@@ -30,7 +30,8 @@ def GPT_data():
 6、在合适的时候加上少量的emoji
 7、在文章结尾的时候要注意完整性和格式，除了文章内容外禁止输出其他无关内容。
 
-语言规则： 1. 回答问题时，去除明显的AI生成特征。
+语言规则：
+1. 回答问题时，去除明显的AI生成特征。
 2. 回答问题时，需要用自然的语气+口语化。
 3. 回答问题时，适当使用第一人称。
 4. 回答问题时，尽量使用主动语态，减少被动语句和副词，但是不能改变原意。
@@ -51,15 +52,15 @@ def GPT_data():
     response = client.chat.completions.create(
         messages=[
             {'role': 'user', 'content': user_content},{'role': 'user', 'content':f"""
-**《Vue3表单处理入门教程：数据绑定与验证的详细解析》**
-   - 内容方向：讲解如何在Vue3中处理表单，包括数据绑定、表单验证和提交的实现。
+标题：Web3与AI结合的详细入门教程：Sahara AI项目解析
+   **内容方向**：介绍Web3和AI结合的基本概念，详细解析Sahara AI项目的实现和应用场景。
         """}, ],
         model='gpt-4o-mini',
         stream=False
     )
 
     # print(response.choices[0].message.content)
-    with open('article.md', 'a', encoding='utf-8') as file:
+    with open('article.md', 'w', encoding='utf-8') as file:
         file.write(response.choices[0].message.content)
    
 

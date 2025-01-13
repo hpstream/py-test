@@ -134,7 +134,7 @@ def GPT_data():
     )
 
     # print(response.choices[0].message.content)
-    with open('output.md', 'a', encoding='utf-8') as file:
+    with open('output.md', 'w', encoding='utf-8') as file:
         file.write(response.choices[0].message.content)
    
 
